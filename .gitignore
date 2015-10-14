@@ -1,0 +1,43 @@
+# bower components
+/resources/assets/vendor/
+
+# php bundles
+/vendor
+/node_modules
+Homestead.yaml
+.env
+.idea
+*.log
+/behat.local.yml
+
+
+# OS generated files
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+
+# Packages
+######################
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+
+# Node | Bower | SCSS
+######################
+/.sass-cache
+/public/build
+/bower_components
+/node_modules
+npm-debug.log

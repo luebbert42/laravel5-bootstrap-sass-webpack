@@ -1,0 +1,13 @@
+<?php{{namespace}}
+
+class {{name}}Repository extends BaseRepository implements {{name}}Interface
+{
+    
+    protected $model;
+    
+    public function __construct(\App\Models\{{name}} $[name])
+    {
+        $this->model = $[name];
+    }
+    
+}

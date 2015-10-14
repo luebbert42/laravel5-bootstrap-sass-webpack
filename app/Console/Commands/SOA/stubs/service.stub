@@ -1,0 +1,20 @@
+<?php{{namespace}}
+
+use \App\Repositories\{{name}}\{{name}}Interface;
+
+class {{name}}Service extends BaseService
+{
+
+
+
+    /** @var \App\Repositories\{{name}}\{{name}}Repository $repo */
+    protected $repo;
+
+    public function __construct({{name}}Interface $[name]Repo)
+    {
+        $this->repo = $[name]Repo;
+    }
+    
+}
+
+

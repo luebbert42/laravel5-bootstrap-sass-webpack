@@ -1,0 +1,16 @@
+<?php{{namespace}}
+
+use App\Models\{{name}};
+use App\Repositories\{{name}}\{{name}}Repository;
+use Illuminate\Support\ServiceProvider;
+
+
+class {{name}}RepositoryServiceProvider extends ServiceProvider
+{
+    public function register()
+    {
+        $this->app->bind('\App\Repositories\{{name}}\{{name}}Interface', function($app){
+            return new {{name}}Repository(new {{name}}());
+        });
+    }
+}

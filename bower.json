@@ -1,0 +1,24 @@
+{
+  "name": "risa",
+  "version": "0.0.0",
+  "authors": [
+    "Dorthe Luebbert <dorthe@luebbert.net>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "other",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "resources/assets/vendor/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "bootstrap-sass-official#~3.3.5"
+  }
+}
