@@ -7,7 +7,7 @@
             <div class="fa_user">
                 <i class="fa fa-user"></i>
             </div>
-            <p class="member">MyApp</p>
+            <p class="member">{{$appName}}</p>
 
             @if($errors->has())
                 @foreach ($errors->all() as $error)

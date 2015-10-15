@@ -1,6 +1,8 @@
-<?php{{namespace}}
+<?php
 
-class {{name}}Repository extends BaseRepository implements {{name}}Interface
+{{namespace}}
+
+class {{name}}Repository extends \App\Repositories\BaseRepository implements {{name}}Interface
 {
     
     protected $model;

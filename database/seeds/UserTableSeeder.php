@@ -41,19 +41,23 @@ class UserTableSeeder extends Seeder {
 
         \DB::table('users')->delete();
         $user1 = \App\Models\User::create([
-            'firstname' => 'Walther',
-            'lastname' => 'Wurzel',
+            'firstname' => 'Raimond',
+            'lastname' => 'Root',
             'email' => 'admin@example.com',
-            'password' => \Hash::make('tester!')
+            'password' => \Hash::make('IsGeorgeClooneyStillMarried')
         ]);
 
 
-        $user2 = \App\Models\User::create([
-            'firstname' => 'Dorthe',
-            'lastname' => 'Luebbert',
-            'email' => 'dorthe@luebbert.net',
-            'password' => \Hash::make('hundkatze')
-        ]);
+        $users = array($user1);
+        foreach ($users as $user) {
+            // role "admin" has acl "users_crud"
+            \DB::table('role_user')->insert(
+                array(
+                    'user_id' => $user->id,
+                    'role_id' => $roleAdmin->id
+                )
+            );
+        }
 
     }
 

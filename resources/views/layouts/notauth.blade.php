@@ -1,17 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Timetracker</title>
-
-    <!-- Bootstrap -->
-    <link href="{{asset('css/login/login.css')}}" rel="stylesheet">
-
-    <link href="{{asset('css/app.css')}}" rel="stylesheet">
-
+    @include("layouts.partials._head")
+    <link href="{{asset('css/login/login.css')}}?v={{$version}}" rel="stylesheet">
 </head>
 <body class="login">
 
@@ -21,6 +12,12 @@
 </div>
 </div>
 
-<script src="{{asset('js/all.js')}}"></script>
+<script src="{{asset('js/all.js')}}?v={{$version}}"></script>
+@yield('js')
+@if ( Config::get('app.debug') )
+    <script type="text/javascript">
+        document.write('<script src="//localhost:35729/livereload.js?snipver=1" type="text/javascript"><\/script>')
+    </script>
+@endif
 </body>
 </html>

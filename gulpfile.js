@@ -15,32 +15,30 @@ require('laravel-elixir-livereload');
  */
 
 
-var paths = {
-    'jquery': './resources/assets/vendor/jquery/',
-    'bootstrap': './resources/assets/vendor/bootstrap-sass/'
-}
+
+
 
 elixir(function(mix) {
+
+    var paths = {
+        'jquery': './resources/assets/vendor/jquery/',
+        'bootstrap': './resources/assets/vendor/bootstrap-sass/',
+        'fontawesome': './resources/assets/vendor/font-awesome/'
+    }
+
     mix.livereload();
 
-    mix.sass("app.scss", 'public/css/', {includePaths: [paths.bootstrap + 'stylesheets/']})
-        .copy(paths.bootstrap + 'fonts/bootstrap/**', 'public/fonts')
-        .scripts([
-            paths.jquery + "dist/jquery.js",
-            paths.bootstrap + "assets/javascripts/bootstrap.js"
-        ], './public/js/', 'public/js/app.js');
+    mix.sass("app.scss", "public/css", {
+        includePaths: [
+            paths.bootstrap + '/stylesheets',
+            paths.fontawesome + '/scss'
+        ]
+    });
 
-    /*
+    mix.copy(paths.bootstrap + 'fonts/bootstrap/**', 'public/fonts')
 
     mix.scripts([
-     'vendor/jquery/dist/jquery.min.js',
-     'js/app.js'
-    ], 'public/js/app.js', 'resources/assets/');
-
-
-
-    mix.copy(
-        'js/app.js',
-        'public/js/app.js'
-    );*/
+            paths.jquery + "dist/jquery.js",
+            paths.bootstrap + "assets/javascripts/bootstrap.js"
+        ], './', 'public/js/app.js');
 });

@@ -16,7 +16,16 @@ Route::get('/', [
     'uses' => 'Auth\AuthController@getLogin'
 ]);
 
-// Authentication routes...
+
+Route::get('/home', [
+    'as' => 'home',
+    'uses' => 'User\UserController@Index'
+]);
+
+# Users
+Route::pattern('users', '\d+');
+Route::resource('users', 'Users\UsersController');
+
 
 // Authentication routes...
 Route::get('auth/login', [

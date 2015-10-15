@@ -3,10 +3,11 @@
 namespace App\Exceptions;
 
 use Exception;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Http\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Database\Eloquent\ModelNotFoundException as ModelNotFoundException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException as NotFoundHttpException;
 
 class Handler extends ExceptionHandler
 {
@@ -17,7 +18,6 @@ class Handler extends ExceptionHandler
      */
     protected $dontReport = [
         HttpException::class,
-        ModelNotFoundException::class,
     ];
 
     /**
@@ -42,10 +42,42 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
-        if ($e instanceof ModelNotFoundException) {
-            $e = new NotFoundHttpException($e->getMessage(), $e);
+
+        $e->getCode() == 0 ? $code = 500 : $code = $e->getCode();
+
+        if($request->wantsJson()) {
+            \Log::error($e);
+            $json = [
+                'success' => false,
+                'error' => [
+                    'code' => $code,
+                    'message' => $e->getMessage(),
+                    'timestamp' => date('Y-m-d H:i:s')
+                ],
+            ];
+            return response()->json($json,  $code);
         }
 
-        return parent::render($request, $e);
+        // 404 page when a model is not found
+        if (($e instanceof ModelNotFoundException) && (!\Config::get('app.debug'))) {
+            return response()->view('errors.404', [], 404);
+        }
+
+
+        if (($e instanceof NotFoundHttpException) && (!\Config::get('app.debug'))) {
+            return response()->view('errors.404', [], 404);
+        }
+
+
+        if ($this->isHttpException($e)) {
+            return $this->renderHttpException($e);
+        } else {
+            // Custom error 500 view on production
+            if (app()->environment() == 'production') {
+                return response()->view('errors.500', [], 500);
+            }
+            return parent::render($request, $e);
+        }
+
     }
 }

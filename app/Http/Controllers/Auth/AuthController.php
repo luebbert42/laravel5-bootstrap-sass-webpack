@@ -11,8 +11,8 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 class AuthController extends Controller
 {
 
-    protected $redirectPath = '/dashboard';
-    protected $redirectTo = '/dashboard';
+    protected $redirectPath = '/home';
+    protected $redirectTo = '/home';
 
     /*
     |--------------------------------------------------------------------------

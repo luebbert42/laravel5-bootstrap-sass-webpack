@@ -135,9 +135,19 @@ return [
         Illuminate\Session\SessionServiceProvider::class,
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
+
+        // HTML & Forms
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+
+        // Debugbar
+        Barryvdh\Debugbar\ServiceProvider::class,
+
+        // IDE Helper PHPStorm
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+
+        // http://stackoverflow.com/questions/18329541/where-to-place-bladeextend
+        'App\Providers\BladeServiceProvider',
 
         /*
          * Application Service Providers...
@@ -147,6 +157,12 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+
+
+
+        //
+        App\Repositories\User\UserRepositoryServiceProvider::class,
+        App\Services\User\UserServiceServiceProvider::class,
     ],
 
     /*
@@ -197,6 +213,8 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
         'Form'      => Collective\Html\FormFacade::class,
         'Html'      => Collective\Html\HtmlFacade::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'UserService' => App\Services\User\UserFacade::class,
 
 
     ],

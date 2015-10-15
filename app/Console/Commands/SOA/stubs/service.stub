@@ -1,8 +1,10 @@
-<?php{{namespace}}
+<?php
+
+{{namespace}}
 
 use \App\Repositories\{{name}}\{{name}}Interface;
 
-class {{name}}Service extends BaseService
+class {{name}}Service extends \App\Services\BaseService
 {
 
 

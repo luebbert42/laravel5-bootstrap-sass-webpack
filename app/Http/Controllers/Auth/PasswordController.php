@@ -9,9 +9,9 @@ class PasswordController extends Controller
 {
 
 
-    protected $redirectPath = '/dashboard';
-    protected $redirectTo   = '/dashboard';
-    protected $subject      = "Ihr neues Passwort für Timetracker";
+    protected $redirectPath = '/home';
+    protected $redirectTo   = '/home';
+    protected $subject      = "Ihr neues Passwort für MyApp";
 
     /*
     |--------------------------------------------------------------------------
