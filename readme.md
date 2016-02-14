@@ -21,7 +21,7 @@ git clone https://github.com/luebbert42/laravel5-bootstrap-sass-elixir
 cp .env.example .env
 
 # get all the fancy php stuff from web
-compser install
+composer install
 
 # fix permissions (stolen from Symfony2 doc)
 sudo -s
@@ -49,14 +49,18 @@ php artisan migrate --seed
 npm install --global gulp
 npm install
 
-
+# Import - generate a key - unless you want to see some cryptic error message complaining on cipher/key problems
 php artisan key:generate
 
-# start webserver
+# start gulp to watch changes on sass/js-Files (see gulpfile.js for details)
+gulp watch
 
+
+# start webserver 
 php artisan serve
 
-# login with user credentials given in database/seeds/UserTableSeeder.php
 
+# login with user credentials given in database/seeds/UserTableSeeder.php
+http://localhost:8000/
 
 ```
