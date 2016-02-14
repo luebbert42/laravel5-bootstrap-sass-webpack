@@ -8,7 +8,7 @@
 * Bootstrap SCSS/Font Awesome/Jquery - Bower - Gulp - Elixir
 * ModelNotFound & RouteNotFound && !debug -> route to stylable error pages
 * BladeServiceProvider for custom directives
-
+* Codeception for testing
 
 # Installation
 
@@ -55,6 +55,8 @@ php artisan key:generate
 # start gulp to watch changes on sass/js-Files (see gulpfile.js for details)
 gulp watch
 
+# check that codeception is running 
+codecept run
 
 # start webserver 
 php artisan serve
