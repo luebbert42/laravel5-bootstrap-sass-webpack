@@ -9,3 +9,54 @@
 * ModelNotFound & RouteNotFound && !debug -> route to stylable error pages
 * BladeServiceProvider for custom directives
 
+
+# Installation
+
+
+```
+# clone repo
+git clone https://github.com/luebbert42/laravel5-bootstrap-sass-elixir
+
+# create env file
+cp .env.example .env
+
+# get all the fancy php stuff from web
+compser install
+
+# fix permissions (stolen from Symfony2 doc)
+sudo -s
+
+HTTPDUSER=`ps axo user,comm | grep -E '[a]pache|[h]ttpd|[_]www|[w]ww-data|[n]ginx' | grep -v root | head -1 | cut -d\  -f1`
+sudo chmod +a "$HTTPDUSER allow delete,write,append,file_inherit,directory_inherit" storage
+sudo chmod +a "`whoami` allow delete,write,append,file_inherit,directory_inherit" storage
+sudo chmod +a "$HTTPDUSER allow delete,write,append,file_inherit,directory_inherit" bootstrap
+sudo chmod +a "`whoami` allow delete,write,append,file_inherit,directory_inherit" bootstrap
+
+# adjust default users if necessary
+vim database/seeds/UserTableSeeder.php
+
+# Database-Setup 
+mysql -u root -e "create database bootstrap_laravel"
+
+# change database name and connection settings in .env if necessary
+vim .env
+
+# run migrations in empty db and add example user
+php artisan migrate --seed
+ 
+
+# Fronend magic - make sure, gulp is already installed on your machine, after that run
+npm install --global gulp
+npm install
+
+
+php artisan key:generate
+
+# start webserver
+
+php artisan serve
+
+# login with user credentials given in database/seeds/UserTableSeeder.php
+
+
+```
