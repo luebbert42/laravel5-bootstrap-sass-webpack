@@ -1,5 +1,4 @@
 {!! Form::token() !!}
-
 <div class="form-group">
     {!! Form::label('firstname', 'Vorname:', ['class' => 'control-label col-lg-3']) !!}
     <div class="col-lg-8">
@@ -21,16 +20,27 @@
     </div>
 </div>
 
-            <div class="form-group">
-                {!! Form::label('active', 'aktiv:', ['class' => 'control-label col-lg-3']) !!}
-                <div class="col-lg-8">
-                    {!! Form::select('active', [null=> $please_select] + array(1 => "aktiv", 0 => "inaktiv"), $user->active,
-                    [
-                        'class' => 'form-control',
-                        'required' => ''
-                    ]) !!}
-                </div>
-            </div>
+<div class="form-group">
+    {!! Form::label('role_slug', 'Rolle:', ['class' => 'control-label col-lg-3']) !!}
+    <div class="col-lg-8">
+        {!! Form::select('role_slug', [null=> $please_select] + $roles, $userRole,
+        [
+            'class' => 'form-control',
+            'required' => ''
+        ]) !!}
+    </div>
+</div>
+
+<div class="form-group">
+    {!! Form::label('active', 'aktiv:', ['class' => 'control-label col-lg-3']) !!}
+    <div class="col-lg-8">
+        {!! Form::select('active', [null=> $please_select] + array(1 => "aktiv", 0 => "inaktiv"), $user->active,
+        [
+            'class' => 'form-control',
+            'required' => ''
+        ]) !!}
+    </div>
+</div>
 
 <div class="form-group">
     <div class="col-lg-9 col-lg-offset-3">

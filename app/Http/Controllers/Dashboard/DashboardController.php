@@ -18,8 +18,6 @@ class DashboardController extends BaseController
     public function dashboard() {
 
         $breadcrumbs = [];
-        $breadcrumbs[route('home')] = "Dashboard";
-
 
         return view('dashboard/dashboard',
             [

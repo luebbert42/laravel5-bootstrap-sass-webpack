@@ -38,16 +38,15 @@ class UserController extends BaseController
 
         $user = new \App\Models\User();
 
+        $selectedRole = $this->userService->getRoleBySlug($request->get('role_slug'));
 
         $input = $request->all(); // $fillable in User.php filters a subset from $input
         $user->fill($input);
         $user->password = \Hash::make($this->generateRandomString());
         $user->save();
 
-        $roleAdmin = $this->userService->getRoleBySlug(\App\Models\Role::ROLE_ADMIN);
-
         // add new role
-        \App\Models\User::find($user->id)->roles()->attach($roleAdmin->id);
+        \App\Models\User::find($user->id)->roles()->attach($selectedRole->id);
 
         return redirect()->back()->with('status', "Der Benutzer wurde angelegt. Das Passwort kann der Benutzer sich über die Passwort-Vergessen-Funktion zuschicken lassen.");
     }
@@ -55,9 +54,17 @@ class UserController extends BaseController
 
     public function create() {
         $user = new \App\Models\User();
+        $roles = \App\Models\Role::getRolesAsArray();
+
+        $breadcrumbs = [];
+        $breadcrumbs[route('admin.users.index')] = "Benutzer";
+        $breadcrumbs[route('admin.users.create')] = "Neuer Benutzer";
+
         return view('user/create',
             array(
                 "user" => $user,
+                "roles" => $roles,
+                "breadcrumbs" => $breadcrumbs
             )
         );
     }
@@ -66,6 +73,16 @@ class UserController extends BaseController
     public function update($id, EditUserRequest $request)
     {
         $user =  $this->userService->byId((int)$id);
+
+        $selectedRole = $this->userService->getRoleBySlug($request->get('role_slug'));
+
+
+        // remove old roles
+        \App\Models\User::find($user->id)->roles()->detach();
+
+        // add new role
+        \App\Models\User::find($user->id)->roles()->attach($selectedRole->id);
+
         $input = $request->all(); // $fillable in User.php filters a subset from $input
         $user->fill($input)->save();
         return redirect()->back()->with('status', "Die Änderungen wurden gespeichert.");
@@ -79,13 +96,12 @@ class UserController extends BaseController
         $breadcrumbs = [];
         $breadcrumbs[route('admin.users.index')] = "Benutzer";
         $breadcrumbs[route('admin.users.edit', ["id" => $id])] = $user->firstname." ".$user->lastname;
-
-
-
+        $roles = \App\Models\Role::getRolesAsArray();
         return view('user/edit',
             array(
                 "user" => $user,
-                "breadcrumbs" => $breadcrumbs
+                "breadcrumbs" => $breadcrumbs,
+                "roles" => $roles
             )
         );
     }

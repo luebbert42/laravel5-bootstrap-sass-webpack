@@ -16,7 +16,14 @@ class UserService extends \App\Services\BaseService
     {
         $this->repo = $userRepo;
     }
-    
+
+    public function getRoleBySlug($roleSlug) {
+        if (!isset($roleSlug) && !(is_string($roleSlug))) {
+            throw new \InvalidArgumentException("externID expected");
+        }
+        return $this->repo->findRoleBySlug($roleSlug);
+    }
+
 }
 
 

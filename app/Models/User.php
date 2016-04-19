@@ -59,10 +59,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->belongsTo('\App\Models\Account');
     }
 
-    public function job()
-    {
-        return $this->belongsTo('App\Models\Job', 'user_id', 'user_id');
-    }
+
 
     public function getFullname() {
         return $this->firstname." ".$this->lastname;

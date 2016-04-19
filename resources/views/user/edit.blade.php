@@ -8,7 +8,6 @@
 
 
 @section('content')
-
     <div class="row">
         <div class="col-sm-6">
             <section class="panel">
@@ -21,6 +20,8 @@
                     @include('layouts.partials._error_msg')
                     @include('user._form_create', array(
                         "user" => $user,
+                        "roles" => $roles,
+                        "userRole" => $user->roles()->first()->role_slug,
                     ))
                     {!! Form::close() !!}
                 </div>
