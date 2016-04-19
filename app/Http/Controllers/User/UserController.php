@@ -18,10 +18,17 @@ class UserController extends BaseController
 
     public function index() {
 
+        $breadcrumbs = [];
+        $breadcrumbs[route('admin.users.index')] = "Benutzer";
+
+
         $users = $this->userService->all();
 
         return view('user/index',
-            array("users" => $users)
+            array(
+                "users" => $users,
+                "breadcrumbs" => $breadcrumbs
+            )
         );
 
     }
@@ -67,10 +74,18 @@ class UserController extends BaseController
 
     public function edit($id)
     {
+
         $user =  $this->userService->byId($id);
+        $breadcrumbs = [];
+        $breadcrumbs[route('admin.users.index')] = "Benutzer";
+        $breadcrumbs[route('admin.users.edit', ["id" => $id])] = $user->firstname." ".$user->lastname;
+
+
+
         return view('user/edit',
             array(
                 "user" => $user,
+                "breadcrumbs" => $breadcrumbs
             )
         );
     }

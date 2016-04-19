@@ -21,19 +21,27 @@ require('laravel-elixir-livereload');
 elixir(function(mix) {
 
     var paths = {
-        'jquery': './resources/assets/vendor/jquery/',
-        'bootstrap': './resources/assets/vendor/bootstrap-sass/',
-        'fontawesome': './resources/assets/vendor/font-awesome/'
+        'vendor': './resources/assets/vendor/',
+        'fontawesome': './resources/assets/vendor/font-awesome/',
+        'theme': './resources/assets/theme/',
+        'css': './resources/assets/css/',
+        'js': './resources/assets/js/',
     }
 
     mix.livereload();
 
     mix.sass("app.scss", "public/css", {
         includePaths: [
-            paths.bootstrap + '/stylesheets',
+            paths.vendor + 'bootstrap-sass/stylesheets',
             paths.fontawesome + '/scss'
         ]
     });
+
+    mix.styles([
+        paths.css + 'custom-theme.css'
+    ], 'public/theme/css/theme.css');
+
+
 
     mix.copy(paths.bootstrap + 'fonts/bootstrap/**', 'public/fonts')
 
