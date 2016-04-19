@@ -19,12 +19,15 @@ Route::get('/', [
 
 Route::get('/home', [
     'as' => 'home',
-    'uses' => 'User\UserController@Index'
+    'uses' => 'Dashboard\DashboardController@dashboard'
 ]);
 
-# Users
-Route::pattern('users', '\d+');
-Route::resource('users', 'Users\UsersController');
+Route::group(['prefix' => 'admin', 'middleware' => 'acl:admin_users, auth'], function () {
+    # Users
+    Route::pattern('users', '\d+');
+    Route::resource('users', 'User\UserController');
+
+});
 
 
 // Authentication routes...

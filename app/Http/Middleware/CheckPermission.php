@@ -20,7 +20,7 @@ class CheckPermission
                 return $next($request);
             }
 
-            return $request->ajax ? response('Unauthorized.', 401) : redirect('/login');
+            return $request->ajax ? response('Unauthorized.', 401) : redirect('/auth/login');
         }
     }
 }
