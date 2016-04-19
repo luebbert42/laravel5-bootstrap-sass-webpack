@@ -4,17 +4,21 @@
 @section('content')
 
 
-    <h1>Users</h1>
+    <h1>Benutzer</h1>
     <div>
         <div class="row">
+            <p>
+                <a href="{{route('admin.users.create')}}" class="btn btn-primary btn-small">Neuer Benutzer</a>
+            </p>
+
             <div class="table-responsive">
                 <table class="table table-striped b-t text-small" id="table-app-users-index" >
                     <thead>
                     <tr>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Role</th>
-                        <th>Active</th>
+                        <th>Rolle</th>
+                        <th>Status</th>
                     </tr>
                     </thead>
                     <tbody>

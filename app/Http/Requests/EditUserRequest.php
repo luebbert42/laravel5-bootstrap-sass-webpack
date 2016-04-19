@@ -25,13 +25,15 @@ class EditUserRequest extends Request
     {
         $rules = [];
 
-        $rules["email"] = "required|email";
+        $unique = '|unique:users,email,'.$this->route('users'); // ignore current user (to be able to update)
+        $rules["email"] = "required|email".$unique;
 
         return $rules;
     }
 
     public function messages()
     {
+        $messages = [];
         $messages = [];
         return $messages;
     }
