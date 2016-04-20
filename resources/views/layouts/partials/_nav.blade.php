@@ -11,6 +11,7 @@
             <a class="navbar-brand" href="{{route("home")}}"><i class="fa fa-rocket"></i> {{$appName}}</a>
         </div>
 
+
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
@@ -37,7 +38,9 @@
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
+
             <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">{{ Auth::user()->getFullname() }}</a></li>
                 <li><a href="{{route("auth.logout")}}">Logout</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>

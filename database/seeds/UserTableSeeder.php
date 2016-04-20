@@ -27,7 +27,7 @@ class UserTableSeeder extends Seeder {
 
         $aclUsersCrud = \App\Models\Permission::create([
             'permission_title' => 'Administrate users',
-            'permission_slug' => 'users_crud',
+            'permission_slug' => 'admin_users',
             'permission_description' => 'May create, edit, inactivate users'
         ]);
 
@@ -40,21 +40,40 @@ class UserTableSeeder extends Seeder {
         );
 
         \DB::table('users')->delete();
-        $user1 = \App\Models\User::create([
-            'firstname' => 'Raimond',
-            'lastname' => 'Root',
+        $admin1 = \App\Models\User::create([
+            'firstname' => 'Achim',
+            'lastname' => 'Admin',
             'email' => 'admin@example.com',
-            'password' => \Hash::make('IsGeorgeClooneyStillMarried')
+            'password' => \Hash::make('AdminUser!')
         ]);
 
 
-        $users = array($user1);
-        foreach ($users as $user) {
-            // role "admin" has acl "users_crud"
+        $user1 = \App\Models\User::create([
+            'firstname' => 'Ulla',
+            'lastname' => 'User',
+            'email' => 'user@example.com',
+            'password' => \Hash::make('RegularUser!')
+        ]);
+
+
+        $admins = array($admin1);
+        foreach ($admins as $user) {
+            // role "admin" has acl "admin_users"
             \DB::table('role_user')->insert(
                 array(
                     'user_id' => $user->id,
                     'role_id' => $roleAdmin->id
+                )
+            );
+        }
+
+
+        $users = array($user1);
+        foreach ($users as $user) {
+            \DB::table('role_user')->insert(
+                array(
+                    'user_id' => $user->id,
+                    'role_id' => $roleUser->id
                 )
             );
         }
