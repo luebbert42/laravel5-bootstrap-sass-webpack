@@ -1,4 +1,4 @@
-$fa-font-path: "resources/assets/vendor/font-awesome/fonts";
+$fa-font-path:"../fonts"; // target directory for font awesome files relativ to app.css
 
 @import "resources/assets/vendor/font-awesome/scss/font-awesome.scss";
 @import "_custom-bootstrap.scss";
