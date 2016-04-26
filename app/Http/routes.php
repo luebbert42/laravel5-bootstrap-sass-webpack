@@ -17,10 +17,6 @@ Route::get('/', [
 ]);
 
 
-Route::get('/home', [
-    'as' => 'home',
-    'uses' => 'Dashboard\DashboardController@dashboard'
-]);
 
 Route::group(['prefix' => 'admin', 'middleware' => 'acl:admin_users, auth'], function () {
     # Users
@@ -28,6 +24,17 @@ Route::group(['prefix' => 'admin', 'middleware' => 'acl:admin_users, auth'], fun
     Route::resource('users', 'User\UserController');
 
 });
+
+Route::group(['middleware' => 'auth'], function () {
+
+
+    Route::get('/home', [
+        'as' => 'home',
+        'uses' => 'Dashboard\DashboardController@dashboard'
+    ]);
+
+});
+
 
 
 // Authentication routes...
