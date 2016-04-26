@@ -46,7 +46,8 @@ elixir(function(mix) {
     mix.copy(paths.bootstrap + 'fonts/bootstrap/**', 'public/fonts')
 
     mix.scripts([
-            paths.jquery + "dist/jquery.js",
-            paths.bootstrap + "assets/javascripts/bootstrap.js"
-        ], './', 'public/js/app.js');
+        paths.vendor + "jquery/dist/jquery.js",
+        paths.vendor + "bootstrap-sass/assets/javascripts/bootstrap.js",
+        paths.js + 'app.js',
+    ], './public/js/all.js');
 });
