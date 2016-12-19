@@ -9,7 +9,7 @@
             </div>
             <p class="member">{{$appName}}</p>
 
-            @if($errors->has())
+            @if($errors->any())
                 @foreach ($errors->all() as $error)
                     <div class="alert alert-danger" role="alert">{{ $error }}</div>
                 @endforeach
@@ -19,7 +19,7 @@
                     {{ session('status') }}
                 </div>
             @endif
-            <form role="form" class="loginform" method="post" action="{{ URL::route('auth.postLogin') }}">
+            <form role="form" class="loginform" method="post" action="{{ url('/login') }}">
                 {!! Form::token() !!}
                 <div class="form-group">
                     <label for="email" class="sr-only">Email-Adresse</label>
@@ -37,7 +37,7 @@
                 </div>
                 <button type="submit" class="btn btn-brown btn-md login">Anmelden</button>
             </form>
-            <p class="forgotpass"><a href="{{ URL::route('password.email') }}" class="small">Passwort vergessen?</a></p>
+            <p class="forgotpass"><a href="{{ url('/password/reset') }}" class="small">Passwort vergessen?</a></p>
         </div>
     </div>
 @stop

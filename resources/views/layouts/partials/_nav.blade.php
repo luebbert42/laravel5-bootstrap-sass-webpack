@@ -16,7 +16,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 @if(Auth::user()->can('admin_users'))
-                <li class="active"><a href="{{route("admin.users.index")}}">Benutzer <span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="{{route("users.index")}}">Benutzer <span class="sr-only">(current)</span></a></li>
                 @endif
                 <li><a href="#">Link</a></li>
                 <li class="dropdown">
@@ -41,7 +41,19 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#">{{ Auth::user()->getFullname() }}</a></li>
-                <li><a href="{{route("auth.logout")}}">Logout</a></li>
+                <li>
+                    <a href="{{ url('/logout') }}"
+                       onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                            Logout
+                    </a>
+                    <form id="logout-form"
+                          action="{{ url('/logout') }}"
+                          method="POST"
+                          style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+                </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                     <ul class="dropdown-menu">

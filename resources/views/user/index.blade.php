@@ -8,7 +8,7 @@
 @section('content')
 
     <p>
-        <a href="{{route('admin.users.create')}}" class="btn btn-primary btn-small">Neuer Benutzer</a>
+        <a href="{{route('users.create')}}" class="btn btn-primary btn-small">Neuer Benutzer</a>
     </p>
 
     <div class="table-responsive">
@@ -25,7 +25,7 @@
             @foreach($users as $user)
                 <tr>
                     <td>
-                        <a href="{{route("admin.users.edit", array("id" => $user->id))}}">{{$user->firstname}}  {{$user->lastname}}</a>
+                        <a href="{{route("users.edit", array("id" => $user->id))}}">{{$user->firstname}}  {{$user->lastname}}</a>
                     </td>
                     <td><a href="mailto:{{$user->email}}"> {{$user->email}}</a>
                     </td>

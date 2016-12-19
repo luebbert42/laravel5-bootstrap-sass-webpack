@@ -149,6 +149,8 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Illuminate\Notifications\NotificationServiceProvider::class,
+
 
 
         // HTML & Forms
@@ -230,6 +232,7 @@ return [
         'Html'      => Collective\Html\HtmlFacade::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'UserService' => App\Services\User\UserFacade::class,
+        'Notification' => Illuminate\Support\Facades\Notification::class,
 
 
     ],

@@ -15,7 +15,7 @@
                     <h4>Benutzer editieren</h4>
                     {!! Form::model( $user, ['class' => 'form-horizontal',
                                                  'method' => 'PATCH',
-                                                 'route' => ['admin.users.update', $user->id]
+                                                 'route' => ['users.update', $user->id]
                                                  ] ) !!}
                     @include('layouts.partials._error_msg')
                     @include('user._form_create', array(

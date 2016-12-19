@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests;
 
-use App\Http\Requests\Request;
+use Illuminate\Foundation\Http\FormRequest;
 
-class EditUserRequest extends Request
+class EditUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,16 +24,14 @@ class EditUserRequest extends Request
     public function rules()
     {
         $rules = [];
-
-        $unique = '|unique:users,email,'.$this->route('users'); // ignore current user (to be able to update)
+        $userId = (int)$this->route('user');
+        $unique = '|unique:users,email,'.$userId; // ignore current user (to be able to update)
         $rules["email"] = "required|email".$unique;
-
         return $rules;
     }
 
     public function messages()
     {
-        $messages = [];
         $messages = [];
         return $messages;
     }

@@ -15,7 +15,7 @@
                 <div class="panel-body">
                     <h4>Neuer Benutzer</h4>
 
-                    <form class="form-horizontal" method="post" action="{{ URL::route('admin.users.store') }}">
+                    <form class="form-horizontal" method="post" action="{{ URL::route('users.store') }}">
                         @include('layouts.partials._error_msg')
                         @include('user._form_create',
                                 array(

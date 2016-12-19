@@ -19,7 +19,7 @@ class UserController extends BaseController
     public function index() {
 
         $breadcrumbs = [];
-        $breadcrumbs[route('admin.users.index')] = "Benutzer";
+        $breadcrumbs[route('users.index')] = "Benutzer";
 
 
         $users = $this->userService->all();
@@ -57,8 +57,8 @@ class UserController extends BaseController
         $roles = \App\Models\Role::getRolesAsArray();
 
         $breadcrumbs = [];
-        $breadcrumbs[route('admin.users.index')] = "Benutzer";
-        $breadcrumbs[route('admin.users.create')] = "Neuer Benutzer";
+        $breadcrumbs[route('users.index')] = "Benutzer";
+        $breadcrumbs[route('users.create')] = "Neuer Benutzer";
 
         return view('user/create',
             array(
@@ -94,8 +94,8 @@ class UserController extends BaseController
 
         $user =  $this->userService->byId($id);
         $breadcrumbs = [];
-        $breadcrumbs[route('admin.users.index')] = "Benutzer";
-        $breadcrumbs[route('admin.users.edit', ["id" => $id])] = $user->firstname." ".$user->lastname;
+        $breadcrumbs[route('users.index')] = "Benutzer";
+        $breadcrumbs[route('users.edit', ["id" => $id])] = $user->firstname." ".$user->lastname;
         $roles = \App\Models\Role::getRolesAsArray();
         return view('user/edit',
             array(

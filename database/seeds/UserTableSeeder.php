@@ -44,7 +44,7 @@ class UserTableSeeder extends Seeder {
             'firstname' => 'Achim',
             'lastname' => 'Admin',
             'email' => 'admin@example.com',
-            'password' => \Hash::make('AdminUser!')
+            'password' => \Hash::make('tester')
         ]);
 
 
@@ -52,7 +52,7 @@ class UserTableSeeder extends Seeder {
             'firstname' => 'Ulla',
             'lastname' => 'User',
             'email' => 'user@example.com',
-            'password' => \Hash::make('RegularUser!')
+            'password' => \Hash::make('tester')
         ]);
 
 
