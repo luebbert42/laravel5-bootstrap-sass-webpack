@@ -19,7 +19,7 @@
                     {{ session('status') }}
                 </div>
             @endif
-            <form role="form" class="loginform" method="post" action="{{ url('/login') }}">
+            <form role="form" class="loginform" id="loginform" method="post" action="{{ url('/login') }}">
                 {!! Form::token() !!}
                 <div class="form-group">
                     <label for="email" class="sr-only">Email-Adresse</label>

@@ -25,28 +25,31 @@ class AcceptanceTester extends \Codeception\Actor
     */
 
     public function login( $name, $email,$password) {
+
         $I = $this;
-        $I->amOnPage('/auth/login');
-        $I->submitForm('.loginform', [
+        $I->amOnPage('/login');
+
+        $I->submitForm('#loginform', [
             'email' => $email,
             'password' => $password
         ]);
+
         $I->see($name, '.navbar');
     }
 
     public function loginAsAdmin() {
         $I = $this;
-        $this->login('Admin','admin@example.com', 'AdminUser!');
+        $this->login('Admin','admin@example.com', 'tester');
     }
 
     public function loginAsUser() {
         $I = $this;
-        $this->login('User','user@example.com', 'RegularUser!');
+        $this->login('User','user@example.com', 'tester');
     }
 
     public function logout() {
         $I = $this;
-        $I->amOnPage('/auth/logout');
+        $I->amOnPage('/logout');
     }
 
 

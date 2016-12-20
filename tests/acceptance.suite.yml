@@ -7,8 +7,8 @@
 class_name: AcceptanceTester
 modules:
     enabled:
-        - PhpBrowser:
-            url: http://localhost:8000/
         - \Helper\Acceptance
-        - Laravel5:
-            environment_file: .env.testing
+        - PhpBrowser
+    config:
+        PhpBrowser:
+          url: 'http://127.0.0.1:8000'
