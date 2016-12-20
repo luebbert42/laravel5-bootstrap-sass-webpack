@@ -4,7 +4,7 @@
     @include("layouts.partials._head")
 </head>
 <body>
-<div id="wrap">
+<div id="app">
 
     @include("layouts.partials._nav")
 
@@ -61,11 +61,11 @@
     </div>
 </div>
 
-<footer  id="footer">
+<footer  id="footer" class="navbar-fixed-bottom">
     <p class="h5 text-muted">Awesome Footer</p>
 </footer>
 
-<script src="{{asset('js/all.js')}}?v={{$version}}"></script>
+<script src="{{asset('js/app.js')}}?v={{$version}}"></script>
 @yield('js')
 </body>
 </html>

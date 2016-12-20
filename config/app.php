@@ -175,11 +175,14 @@ return [
         App\Providers\RouteServiceProvider::class,
 
 
-
-
         //
         App\Repositories\User\UserRepositoryServiceProvider::class,
         App\Services\User\UserServiceServiceProvider::class,
+
+
+        // domain specific
+        App\Repositories\Query\QueryRepositoryServiceProvider::class,
+        App\Services\Query\QueryServiceServiceProvider::class,
     ],
 
     /*
@@ -233,7 +236,6 @@ return [
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'UserService' => App\Services\User\UserFacade::class,
         'Notification' => Illuminate\Support\Facades\Notification::class,
-
 
     ],
 

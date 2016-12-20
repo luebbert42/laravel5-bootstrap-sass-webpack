@@ -1,4 +1,13 @@
-$fa-font-path:"fonts"; // target directory for font awesome files relativ to app.css
 
-@import "resources/assets/vendor/font-awesome/scss/font-awesome.scss";
-@import "_custom-bootstrap.scss";
+// Fonts
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "node_modules/font-awesome/scss/font-awesome.scss";
+
+// other stuff
+@import "resources/assets/sass/_custom-css.scss";

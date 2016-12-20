@@ -1,7 +1,9 @@
-var elixir = require('laravel-elixir');
-var gulp = require("gulp");
+const elixir = require('laravel-elixir');
 
-require('laravel-elixir-livereload');
+require('laravel-elixir-vue-2');
+
+require('karl456-laravel-elixir-livereload');
+
 
 /*
  |--------------------------------------------------------------------------
@@ -17,37 +19,9 @@ require('laravel-elixir-livereload');
 
 
 
-
-elixir(function(mix) {
-
-    var paths = {
-        'vendor': './resources/assets/vendor/',
-        'fontawesome': './resources/assets/vendor/font-awesome/',
-        'theme': './resources/assets/theme/',
-        'css': './resources/assets/css/',
-        'js': './resources/assets/js/',
-    }
-
-    mix.livereload();
-
-    mix.sass("app.scss", "public/css", {
-        includePaths: [
-            paths.vendor + 'bootstrap-sass/stylesheets',
-            paths.fontawesome + '/scss'
-        ]
-    });
-
-    mix.styles([
-        paths.css + 'custom-theme.css'
-    ], 'public/theme/css/theme.css');
-
-
-
-    mix.copy(paths.bootstrap + 'fonts/bootstrap/**', 'public/fonts')
-
-    mix.scripts([
-        paths.vendor + "jquery/dist/jquery.js",
-        paths.vendor + "bootstrap-sass/assets/javascripts/bootstrap.js",
-        paths.js + 'app.js',
-    ], './public/js/all.js');
+elixir((mix) => {
+    mix.sass('app.scss')
+    .webpack('app.js')
+    .livereload();
 });
+
