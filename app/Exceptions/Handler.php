@@ -50,43 +50,17 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
-
-        $e->getCode() == 0 ? $code = 500 : $code = $e->getCode();
-
-        if($request->wantsJson()) {
-            \Log::error($e);
-            $json = [
-                'success' => false,
-                'error' => [
-                    'code' => $code,
-                    'message' => $e->getMessage(),
-                    'timestamp' => date('Y-m-d H:i:s')
-                ],
-            ];
-            return response()->json($json,  $code);
-        }
-
-        // 404 page when a model is not found
-        if (($e instanceof ModelNotFoundException) && (!\Config::get('app.debug'))) {
-            return response()->view('errors.404', [], 404);
-        }
-
-
-        if (($e instanceof NotFoundHttpException) && (!\Config::get('app.debug'))) {
-            return response()->view('errors.404', [], 404);
-        }
-
-
-        if ($this->isHttpException($e)) {
-            return $this->renderHttpException($e);
-        } else {
-            // Custom error 500 view on production
-            if (app()->environment() == 'production') {
-                return response()->view('errors.500', [], 500);
-            }
-            return parent::render($request, $e);
-        }
-
+    /**
+     * Report or log an exception.
+     *
+     * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
+     *
+     * @param  \Exception  $exception
+     * @return void
+     */
+    public function report(Exception $exception)
+    {
+        parent::report($exception);
     }
 
     /**
