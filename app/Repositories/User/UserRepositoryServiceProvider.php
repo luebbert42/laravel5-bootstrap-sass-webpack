@@ -9,7 +9,7 @@ class UserRepositoryServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->app->bind('\App\Repositories\User\UserInterface', function($app){
+        $this->app->bind('App\Repositories\User\UserInterface', function($app){
             return new UserRepository(new User());
         });
     }

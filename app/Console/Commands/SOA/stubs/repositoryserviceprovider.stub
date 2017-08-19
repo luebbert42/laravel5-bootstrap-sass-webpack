@@ -9,7 +9,7 @@ class {{name}}RepositoryServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->app->bind('\App\Repositories\{{name}}\{{name}}Interface', function($app){
+        $this->app->bind('App\Repositories\{{name}}\{{name}}Interface', function($app){
             return new {{name}}Repository(new {{name}}());
         });
     }

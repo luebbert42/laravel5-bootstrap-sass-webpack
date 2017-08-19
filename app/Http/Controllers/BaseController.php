@@ -14,7 +14,7 @@ class BaseController extends Controller
 
     function __construct() {
         $this->currentUser     =    \Auth::user();
-        $this->userService     =    \App::make('\App\Services\User\UserService');
+        $this->userService     =    \App::make('App\Services\User\UserService');
     }
 
     protected function transformDateFromFrontend($value) {
