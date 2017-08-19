@@ -1,27 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     @include("layouts.partials._head")
 </head>
 <body>
 <div id="app">
-
     @include("layouts.partials._nav")
 
     <div class="container-fluid main-container">
-        <div class="col-md-2 sidebar">
-            <ul class="nav nav-pills nav-stacked">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Link</a></li>
-                <li><a href="#">Link</a></li>
-                <li><a href="#">Link</a></li>
-                <li><a href="#">Link</a></li>
-            </ul>
-        </div>
-
-
+        @include("layouts.partials._menu")
         <div class="col-md-10 content">
-
 
             @include("layouts.partials._breadcrumb")
 
@@ -45,7 +33,8 @@
                         </div>
                     @endif
 
-                    <div class="alert alert-danger alert-icon" role="alert" id="backend_error_msg" style="display:none">
+                    <div class="alert alert-danger alert-icon" role="alert" id="backend_error_msg"
+                         style="display:none">
                         <i class="fa fa-check"></i>
                     </div>
 
@@ -59,6 +48,8 @@
             </div>
         </div>
     </div>
+
+
 </div>
 
 <footer  id="footer" class="navbar-fixed-bottom">
