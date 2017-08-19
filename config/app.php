@@ -180,9 +180,6 @@ return [
         App\Services\User\UserServiceServiceProvider::class,
 
 
-        // domain specific
-        App\Repositories\Query\QueryRepositoryServiceProvider::class,
-        App\Services\Query\QueryServiceServiceProvider::class,
     ],
 
     /*
