@@ -1,0 +1,158 @@
+<recipient>
+    <testempfaenger>1</testempfaenger>
+    <briefanrede1><![CDATA[{{$record["briefanrede1"]}}]]></briefanrede1>
+    <briefanrede2></briefanrede2>
+    <email_adresse><![CDATA[{{$record["email_adresse"]}} ]]></email_adresse>
+    <email_adresse_cc></email_adresse_cc>
+    <email_adresse_bcc></email_adresse_bcc>
+    <email_adresse_reply_to></email_adresse_reply_to>
+    <vorname><![CDATA[{{$record["vorname"]}} ]]></vorname>
+    <nachname><![CDATA[{{$record["nachname"]}}]]></nachname>
+    <namenszusatz></namenszusatz>
+    <anrede><![CDATA[Herrn]]></anrede>
+    <akademischer_titel></akademischer_titel>
+    <adels_titel></adels_titel>
+    <partner_id>{{$record["partner_id"]}}</partner_id>
+    <aktivitaet_id><![CDATA[162564855]]></aktivitaet_id>
+    <geschaeftspartner_id>176324</geschaeftspartner_id>
+    <bestandsfilialnummer>615</bestandsfilialnummer>
+    <kundenstammnummer>2517662</kundenstammnummer>
+    <mandantenkennzeichen>3</mandantenkennzeichen>
+    <berater_filiale><![CDATA[Filiale {{$record["berater_filiale"]}}]]></berater_filiale>
+    <berater_strasse_nr><![CDATA[{{$record["berater_strasse_nr"]}}]]></berater_strasse_nr>
+    <berater_plz_ort><![CDATA[{{$record["berater_plz_ort"]}}]]></berater_plz_ort>
+    <berater_name><![CDATA[Xxxxxxxxxxxxx]]></berater_name>
+    <berater_vorname></berater_vorname>
+    <berater_funktion1></berater_funktion1>
+    <berater_funktion2></berater_funktion2>
+    <berater_telefon_land></berater_telefon_land>
+    <berater_telefon_ort>9999</berater_telefon_ort>
+    <berater_telefon><![CDATA[9999-9]]></berater_telefon>
+    <berater_mobil_land></berater_mobil_land>
+    <berater_mobil_vorwahl>9999</berater_mobil_vorwahl>
+    <berater_mobil></berater_mobil>
+    <berater_fax_land></berater_fax_land>
+    <berater_fax_ort>9999</berater_fax_ort>
+    <berater_fax><![CDATA[9999-99]]></berater_fax>
+    <berater_email_adresse><![CDATA[xx-xxx.xxxxx@xx.xxx]]></berater_email_adresse>
+    <partner_impuls_id>partner_impuls_id</partner_impuls_id>
+    <dms_report_id>dms_report_id</dms_report_id>
+    <placeholders>
+        <placeholder>
+            <tag><![CDATA[Gender]]></tag>
+            <content></content>
+        </placeholder>
+        <placeholder>
+            <tag><![CDATA[Vertriebsweg]]></tag>
+            <content><![CDATA[PK]]></content>
+        </placeholder>
+        <placeholder>
+            <tag><![CDATA[EWE]]></tag>
+            <content></content>
+        </placeholder>
+        <placeholder>
+            <tag><![CDATA[GBM]]></tag>
+            <content><![CDATA[0]]></content>
+        </placeholder>
+        <placeholder>
+            <tag><![CDATA[TEXT_01]]></tag>
+            <content><![CDATA[TEST_TEXT_01 xxxxx xxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxp]]></content>
+        </placeholder>
+        <placeholder>
+            <tag><![CDATA[TEXT_02]]></tag>
+            <content><![CDATA[TEST_TEXT_02 xxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxp]]></content>
+        </placeholder>
+        <placeholder>
+            <tag><![CDATA[TEXT_03]]></tag>
+            <content><![CDATA[TEST_TEXT_03 xxxxx xxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxp]]></content>
+        </placeholder>
+        <placeholder>
+            <tag><![CDATA[TEXT_04]]></tag>
+            <content><![CDATA[TEST_TEXT_04 xxxxx xxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxp]]></content>
+        </placeholder>
+        <placeholder>
+            <tag><![CDATA[TEXT_05]]></tag>
+            <content><![CDATA[TEST_TEXT_05 xxxxx xxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxp]]></content>
+        </placeholder>
+        <placeholder>
+            <tag><![CDATA[TEXT_06]]></tag>
+            <content><![CDATA[TEST_TEXT_06 xxxxx xxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxp]]></content>
+        </placeholder>
+        <placeholder>
+            <tag><![CDATA[TEXT_07]]></tag>
+            <content><![CDATA[TEST_TEXT_07 xxxxx xxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxp]]></content>
+        </placeholder>
+        <placeholder>
+            <tag><![CDATA[TEXT_08]]></tag>
+            <content><![CDATA[TEST_TEXT_08 xxxxx xxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxp]]></content>
+        </placeholder>
+        <placeholder>
+            <tag><![CDATA[TEXT_09]]></tag>
+            <content><![CDATA[TEST_TEXT_09 xxxxx xxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxp]]></content>
+        </placeholder>
+        <placeholder>
+            <tag><![CDATA[TEXT_10]]></tag>
+            <content><![CDATA[TEST_TEXT_10 xxxxx xxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxp]]></content>
+        </placeholder>
+        <placeholder>
+            <tag><![CDATA[NUMERISCH_01]]></tag>
+            <content><![CDATA[100000]]></content>
+        </placeholder>
+        <placeholder>
+            <tag><![CDATA[NUMERISCH_02]]></tag>
+            <content><![CDATA[100000]]></content>
+        </placeholder>
+        <placeholder>
+            <tag><![CDATA[NUMERISCH_03]]></tag>
+            <content><![CDATA[100000]]></content>
+        </placeholder>
+        <placeholder>
+            <tag><![CDATA[NUMERISCH_04]]></tag>
+            <content><![CDATA[100000]]></content>
+        </placeholder>
+        <placeholder>
+            <tag><![CDATA[NUMERISCH_05]]></tag>
+            <content><![CDATA[100000]]></content>
+        </placeholder>
+        <placeholder>
+            <tag><![CDATA[NUMERISCH_06]]></tag>
+            <content><![CDATA[100000]]></content>
+        </placeholder>
+        <placeholder>
+            <tag><![CDATA[NUMERISCH_07]]></tag>
+            <content><![CDATA[100000]]></content>
+        </placeholder>
+        <placeholder>
+            <tag><![CDATA[NUMERISCH_08]]></tag>
+            <content><![CDATA[100000]]></content>
+        </placeholder>
+        <placeholder>
+            <tag><![CDATA[NUMERISCH_09]]></tag>
+            <content><![CDATA[100000]]></content>
+        </placeholder>
+        <placeholder>
+            <tag><![CDATA[NUMERISCH_10]]></tag>
+            <content><![CDATA[100000]]></content>
+        </placeholder>
+        <placeholder>
+            <tag><![CDATA[DATUM_01]]></tag>
+            <content><![CDATA[06/02/2017]]></content>
+        </placeholder>
+        <placeholder>
+            <tag><![CDATA[DATUM_02]]></tag>
+            <content><![CDATA[06/02/2017]]></content>
+        </placeholder>
+        <placeholder>
+            <tag><![CDATA[DATUM_03]]></tag>
+            <content><![CDATA[06/02/2017]]></content>
+        </placeholder>
+        <placeholder>
+            <tag><![CDATA[DATUM_04]]></tag>
+            <content><![CDATA[06/02/2017]]></content>
+        </placeholder>
+        <placeholder>
+            <tag><![CDATA[DATUM_05]]></tag>
+            <content><![CDATA[06/02/2017]]></content>
+        </placeholder>
+    </placeholders>
+</recipient>

@@ -28,12 +28,25 @@ Route::group(['prefix' => 'admin', 'middleware' => 'acl:admin_users, auth'], fun
 
 Route::group(['middleware' => 'auth'], function () {
 
-
     Route::get('/home', [
         'as' => 'home',
         'uses' => 'Dashboard\DashboardController@dashboard'
     ]);
 
+    Route::get('/pogo', [
+        'as' => 'pogo',
+        'uses' => 'Pogo\PogoController@index'
+    ]);
+
+    Route::get('/pogo/generate/{num}', [
+        'as' => 'pogo.generate',
+        'uses' => 'Pogo\PogoController@generate'
+    ]);
+
+    Route::get('/pogo/debug/{num}', [
+        'as' => 'pogo.debug',
+        'uses' => 'Pogo\PogoController@debug'
+    ]);
 });
 
 Auth::routes();

@@ -1,6 +1,8 @@
 # bower components
 /resources/assets/vendor/
 
+/storage/output/*
+
 # php bundles
 /vendor
 /node_modules
@@ -43,3 +45,4 @@ Thumbs.db
 npm-debug.log
 tests/_output/*
 tests/_output/*
+
