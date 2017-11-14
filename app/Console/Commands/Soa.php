@@ -38,7 +38,7 @@ class Soa extends Command {
 	 *
 	 * @return mixed
 	 */
-	public function fire()
+	public function handle()
 	{
 		    $name = $this->argument('name');
             $generator = new SoaGenerator($this->option('package'));
