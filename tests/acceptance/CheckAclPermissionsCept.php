@@ -3,6 +3,7 @@
 $I = new AcceptanceTester($scenario);
 $I->wantTo('check that acl rights work');
 
+
 $I->amGoingTo('Admins can access user admin');
 $I->loginAsAdmin();
 $I->amOnPage('/admin/users');

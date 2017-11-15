@@ -58,6 +58,7 @@ npm  run production
 npm run watch
 
 # check that codeception is running 
+# PREPARATION: adjust acceptance.suite.yml with the url of your vhost
 codecept run
 
 # start webserver 

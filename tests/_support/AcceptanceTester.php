@@ -49,7 +49,10 @@ class AcceptanceTester extends \Codeception\Actor
 
     public function logout() {
         $I = $this;
-        $I->amOnPage('/logout');
+        $I->amOnPage('/');
+
+        $I->submitForm('#logout-form', [
+        ]);
     }
 
 
