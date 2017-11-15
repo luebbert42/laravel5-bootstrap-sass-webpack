@@ -15,7 +15,7 @@
 
 ```
 # clone repo
-git clone https://github.com/luebbert42/laravel5-bootstrap-sass-elixir
+git clone https://github.com/luebbert42/laravel5-bootstrap-sass-webpack
 
 # create env file
 cp .env.example .env
