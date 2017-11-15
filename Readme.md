@@ -5,7 +5,7 @@
 * Service architecture following http://dfg.gd/blog/decoupling-your-code-in-laravel-using-repositiories-and-services
 * user - roles - permissions according to http://heera.it/laravel-5-1-x-acl-middleware#.VaXrovkrLIX (1 user is assigned to one role. 1 role can have many permissions. ACLs are checked via middleware mostly in routes.php)
 * PHPStorm IDE Helper
-* Bootstrap SCSS/Font Awesome/Jquery - vue - Gulp - Elixir
+* Bootstrap SCSS/Font Awesome/Jquery - vue - webpack
 * ModelNotFound & RouteNotFound && !debug -> route to stylable error pages
 * BladeServiceProvider for custom directives
 * Codeception for testing
@@ -15,8 +15,7 @@
 
 ```
 # clone repo
-git clone https://github.com/luebbert42/laravel5-bo
-otstrap-sass-elixir
+git clone https://github.com/luebbert42/laravel5-bootstrap-sass-elixir
 
 # create env file
 cp .env.example .env
@@ -46,15 +45,17 @@ vim .env
 php artisan migrate --seed
  
 
-# Fronend magic - make sure, gulp is already installed on your machine, after that run
-npm install --global gulp
-npm install
+# Fronend magic 
+npm install 
 
-# Import - generate a key - unless you want to see some cryptic error message complaining on cipher/key problems
-php artisan key:generate
+# Run all Mix tasks...
+npm  run dev
 
-# start gulp to watch changes on sass/js-Files (see gulpfile.js for details)
-gulp watch
+# Run all Mix tasks and minify output...
+npm  run production
+
+# watch
+npm run watch
 
 # check that codeception is running 
 codecept run
