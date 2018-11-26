@@ -27,7 +27,7 @@
                     <label for="email" class="sr-only">Email-Adresse</label>
                     <div class="input-group">
                         <input type="email" name="email" class="form-control" id="email"
-                               placeholder="Email-Adresse" value="{{ $email or old('email') }}">
+                               placeholder="Email-Adresse" value="{{ $email ?? old('email') }}">
                                 @if ($errors->has('email'))
                                     <span class="help-block">
                                                 <strong>{{ $errors->first('email') }}</strong>
