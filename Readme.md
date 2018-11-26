@@ -1,17 +1,15 @@
 # Laravel 5.x Bootstrap
 
 * Database seeds using fzaninotto/faker
-* Symfony debugbar
+* Laravel Telescope as debug tool
 * Service architecture following http://dfg.gd/blog/decoupling-your-code-in-laravel-using-repositiories-and-services
 * user - roles - permissions according to http://heera.it/laravel-5-1-x-acl-middleware#.VaXrovkrLIX (1 user is assigned to one role. 1 role can have many permissions. ACLs are checked via middleware mostly in routes.php)
 * PHPStorm IDE Helper
-* Bootstrap SCSS/Font Awesome/Jquery - vue - webpack
+* Bootstrap SCSS/Font Awesome/Vue/Webpack
 * ModelNotFound & RouteNotFound && !debug -> route to stylable error pages
 * BladeServiceProvider for custom directives
-* Codeception for testing
 
 # Installation
-
 
 ```
 # clone repo
@@ -57,15 +55,9 @@ npm  run production
 # watch
 npm run watch
 
-# check that codeception is running 
-# PREPARATION: adjust acceptance.suite.yml with the url of your vhost
-codecept run
-
-# start webserver 
-php artisan serve
-
+# start webserver && use any entry defined in /etc/hosts 
+php artisan serve --host 0.0.0.0 --port 80
 
 # login with user credentials given in database/seeds/UserTableSeeder.php
-http://localhost:8000/
 
 ```
