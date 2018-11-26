@@ -157,9 +157,6 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
 
-        // Debugbar
-        Barryvdh\Debugbar\ServiceProvider::class,
-
         // IDE Helper PHPStorm
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
@@ -230,7 +227,6 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
         'Form'      => Collective\Html\FormFacade::class,
         'Html'      => Collective\Html\HtmlFacade::class,
-        'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'UserService' => App\Services\User\UserFacade::class,
         'Notification' => Illuminate\Support\Facades\Notification::class,
 
