@@ -8,62 +8,61 @@
 
     @include("layouts.partials._nav")
 
-    <div class="container-fluid main-container">
-        <div class="col-md-2 sidebar">
-            <ul class="nav nav-pills nav-stacked">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Link</a></li>
-                <li><a href="#">Link</a></li>
-                <li><a href="#">Link</a></li>
-                <li><a href="#">Link</a></li>
-            </ul>
-        </div>
 
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Firmenname</a>
+        <input class="form-control form-control-dark w-100" type="text" placeholder="Suche" aria-label="Suche">
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" href="#">Logout</a>
+            </li>
+        </ul>
+    </nav>
 
-        <div class="col-md-10 content">
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar navbar-left">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{{route('home')}}">
+                                Home <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('users.index')}}">
+                                Benutzer
+                            </a>
+                        </li>
+                    </ul>
 
-
-            @include("layouts.partials._breadcrumb")
-
-
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    @yield("title")
                 </div>
-                <div class="panel-body">
+            </nav>
 
-                    @if (session('flash_message'))
-                        <div class="alert alert-success alert-icon" role="alert">
-                            <i class="fa fa-check"></i>
-                            {{ session('flash_message') }}
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">  @yield("title")</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <div class="btn-group mr-2">
+                            <button class="btn btn-sm btn-outline-secondary">Foo</button>
+                            <button class="btn btn-sm btn-outline-secondary">Bar</button>
                         </div>
-                    @endif
-                    @if (session('status'))
-                        <div class="alert alert-success alert-icon" role="alert">
-                            <i class="fa fa-check"></i>
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    <div class="alert alert-danger alert-icon" role="alert" id="backend_error_msg" style="display:none">
-                        <i class="fa fa-check"></i>
+                        <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                            <span data-feather="calendar"></span>
+                            SomethingElse
+                        </button>
                     </div>
-
-                    <div class="alert alert-success alert-icon" role="alert" id="backend_success_msg"
-                         style="display:none">
-                        <i class="fa fa-check"></i>
-                    </div>
-
-                    @yield("content")
                 </div>
-            </div>
+                @yield("content")
+
+
+
+            </main>
         </div>
     </div>
+
 </div>
 
-<footer  id="footer" class="navbar-fixed-bottom">
-    <p class="h5 text-muted">Awesome Footer</p>
-</footer>
 
 <script src="{{asset('js/app.js')}}?v={{$version}}"></script>
 @yield('js')
