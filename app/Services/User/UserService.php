@@ -8,7 +8,6 @@ class UserService extends \App\Services\BaseService
 {
 
 
-
     /** @var \App\Repositories\User\UserRepository $repo */
     protected $repo;
 
@@ -22,6 +21,17 @@ class UserService extends \App\Services\BaseService
             throw new \InvalidArgumentException("roleSlug expected");
         }
         return $this->repo->findRoleBySlug($roleSlug);
+    }
+
+
+    public function collectUsers(array $filters) {
+        $this->repo->setFilters($filters);
+        return $this->repo->collectUsers();
+    }
+
+    public function collectUsersPaginated(array $filters) {
+        $this->repo->setFilters($filters);
+        return $this->repo->collectUsersPaginated(50);
     }
 
 }

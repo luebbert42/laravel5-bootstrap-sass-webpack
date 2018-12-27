@@ -78,6 +78,12 @@ class UserTableSeeder extends Seeder {
             );
         }
 
+
+        // create 100 more random admins to showcase paging
+        factory(\App\Models\User::class, 100)->create()->each(function ($user) {
+            $user->save();
+        });
+
     }
 
 

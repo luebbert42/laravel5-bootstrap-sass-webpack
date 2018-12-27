@@ -21,12 +21,14 @@ class UserController extends BaseController
         $breadcrumbs = [];
         $breadcrumbs[route('users.index')] = "Benutzer";
 
+        $filters = [];
+        $users = $this->userService->collectUsersPaginated($filters);
 
-        $users = $this->userService->all();
 
         return view('user/index',
             array(
                 "users" => $users,
+                "pager" => $users,
                 "breadcrumbs" => $breadcrumbs
             )
         );

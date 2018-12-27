@@ -43,4 +43,17 @@
         </table>
     </div>
 
+    @if(method_exists($pager,"appends"))
+
+        <div>
+            Zeige {{($pager->currentpage()-1)*$pager->perpage()+1}}
+            bis {{($pager->currentpage()-1) * $pager->perpage() + $pager->count()}}
+            von {{$pager->total()}} Einträgen
+        </div>
+
+        {!! $pager->appends([
+                             'lastname' => Input::get('lastname'),
+                             ])->render() !!}
+    @endif
+
 @stop
