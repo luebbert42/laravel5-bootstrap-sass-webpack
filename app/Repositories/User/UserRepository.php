@@ -18,6 +18,9 @@ class UserRepository extends \App\Repositories\BaseRepository implements UserInt
         'sort' => 'lastname',
         'order' => self::ORDER_ASC,
         'active' => null,
+        'firstname' => null,
+        'lastname' => null,
+        'email' => null,
     ];
 
 
@@ -52,12 +55,19 @@ class UserRepository extends \App\Repositories\BaseRepository implements UserInt
     {
         $filters = $this->getFilters();
         $query = \App\Models\User::query();
-        /**
-         *
-        if ($fieldname = $filters['fieldname']) {
-            $query->where('fieldname', '=', $fieldname);
+
+        if ($lastname = $filters['lastname']) {
+            $query->where('lastname', 'like', "%{$lastname}%");
         }
-        */
+
+        if ($email = $filters['email']) {
+            $query->where('email', 'like', "%{$email}%");
+        }
+
+        if ($firstname = $filters['firstname']) {
+            $query->where('firstname', 'like', "%{$firstname}%");
+        }
+
         $query->orderBy($filters['sort'], $filters['order']);
         return $query;
     }

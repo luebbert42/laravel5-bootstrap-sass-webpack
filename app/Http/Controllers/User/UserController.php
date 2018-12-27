@@ -6,6 +6,8 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\BaseController;
 use App\Http\Requests\EditUserRequest;
+use App\Models\User;
+use Illuminate\Http\Request;
 
 class UserController extends BaseController
 {
@@ -16,19 +18,18 @@ class UserController extends BaseController
     }
 
 
-    public function index() {
+    public function index(Request $request) {
 
         $breadcrumbs = [];
-        $breadcrumbs[route('users.index')] = "Benutzer";
+        $breadcrumbs[route('users.index')] = "Users";
 
-        $filters = [];
+        list($filters, $search) = $this->configureSearch($request);
         $users = $this->userService->collectUsersPaginated($filters);
-
-
         return view('user/index',
             array(
                 "users" => $users,
                 "pager" => $users,
+                "search" => $search,
                 "breadcrumbs" => $breadcrumbs
             )
         );
@@ -59,8 +60,8 @@ class UserController extends BaseController
         $roles = \App\Models\Role::getRolesAsArray();
 
         $breadcrumbs = [];
-        $breadcrumbs[route('users.index')] = "Benutzer";
-        $breadcrumbs[route('users.create')] = "Neuer Benutzer";
+        $breadcrumbs[route('users.index')] = "Users";
+        $breadcrumbs[route('users.create')] = "New User";
 
         return view('user/create',
             array(
@@ -118,4 +119,39 @@ class UserController extends BaseController
         }
         return $randomString;
     }
+
+
+    protected function configureSearch(Request $request) {
+
+        $search = new User();
+        $filters = [];
+
+        if ($request->has("firstname") && (strlen($request->get("firstname")) > 0)) {
+            $filters["firstname"] = $request->get("firstname");
+            $search->firstname = $request->get("firstname");
+        }
+
+        if ($request->has("sort") && (strlen($request->get("sort")) > 0)) {
+            $filters["sort"] = $request->get("sort");
+            $search->sort = $request->get("sort");
+        }
+
+        if ($request->has("order") && (strlen($request->get("order")) > 0)) {
+            $filters["order"] = $request->get("order");
+            $search->order = $request->get("order");
+        }
+
+        if ($request->has("lastname") && (strlen($request->get("lastname")) > 0)) {
+            $filters["lastname"] = $request->get("lastname");
+            $search->lastname = $request->get("lastname");
+        }
+
+        if ($request->has("email") && (strlen($request->get("email")) > 0)) {
+            $filters["email"] = $request->get("email");
+            $search->email = $request->get("email");
+        }
+
+        return [$filters, $search];
+    }
+
 }

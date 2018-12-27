@@ -29,6 +29,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'acl:admin_users, auth'], fun
     Route::pattern('users', '\d+');
     Route::resource('users', 'User\UserController');
 
+
+    # after search form is posted, requested is parsed by index method and filter params are extracted
+    Route::match(['get', 'post'],'/users', [
+        'as' => 'users.index',
+        'uses' => 'User\UserController@index'
+    ]);
+
 });
 
 Route::group(['middleware' => 'auth'], function () {
