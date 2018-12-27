@@ -6,10 +6,13 @@
 <title>MyApp</title>
 <link href="{{asset('css/app.css')}}?v={{$version}}" rel="stylesheet">
 <link href="{{asset('theme/css/theme.css')}}?v={{$version}}" rel="stylesheet">
-@yield('css')
 
 <script>
-    window.Laravel = <?php echo json_encode([
+    window.Laravel = {!! json_encode([
         'csrfToken' => csrf_token(),
-    ]); ?>
+        'vueMixins' => [],
+    ]) !!};
 </script>
+
+
+@yield('css')
