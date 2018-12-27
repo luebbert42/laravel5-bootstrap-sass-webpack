@@ -112,6 +112,14 @@ return [
 
     'log' => env('APP_LOG', 'single'),
 
+
+    /**
+     * create German names etc.
+     */
+
+    'faker_locale' => 'de_DE',
+
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
