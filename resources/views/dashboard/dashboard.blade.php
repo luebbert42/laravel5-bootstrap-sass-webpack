@@ -9,6 +9,6 @@
 @section('content')
 
 
-    hallo
+    hello world!
 
 @stop
