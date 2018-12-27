@@ -24,8 +24,6 @@ Route::post('auth/logout', [
 ]);
 
 
-
-
 Route::group(['prefix' => 'admin', 'middleware' => 'acl:admin_users, auth'], function () {
     # Users
     Route::pattern('users', '\d+');
@@ -34,13 +32,34 @@ Route::group(['prefix' => 'admin', 'middleware' => 'acl:admin_users, auth'], fun
 });
 
 Route::group(['middleware' => 'auth'], function () {
-
-
     Route::get('/home', [
         'as' => 'home',
         'uses' => 'Dashboard\DashboardController@dashboard'
     ]);
 
 });
+
+
+// forgot password
+Route::get('password/email', [
+    'as' => 'password.email',
+    "uses" => 'Auth\ForgotPasswordController@getEmail'
+]);
+
+
+Route::post('password/email', [
+    'as' => 'password.email',
+    "uses" => 'Auth\ForgotPasswordController@postEmail'
+]);
+
+Route::get('password/reset/{token}', [
+    'as' => 'password.reset',
+    "uses" => 'Auth\ForgotPasswordController@getReset'
+]);
+
+Route::post('password/reset', [
+    'as' => 'password.postReset',
+    "uses" => 'Auth\ForgotPasswordController@postReset'
+]);
 
 Auth::routes();
