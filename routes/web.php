@@ -18,6 +18,13 @@ Route::get('/', [
 ]);
 
 
+Route::post('auth/logout', [
+    'as' => 'auth.logout',
+    "uses" => 'Auth\LoginController@logout'
+]);
+
+
+
 
 Route::group(['prefix' => 'admin', 'middleware' => 'acl:admin_users, auth'], function () {
     # Users
